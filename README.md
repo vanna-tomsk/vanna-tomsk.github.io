@@ -1,7 +1,7 @@
 # Ванна+ — лендинг
 
 Реставрация ванн жидким акрилом в Томске.
-Сайт: https://denii-koz.github.io/vanna-plus/
+Сайт: https://vanna-tomsk.github.io/
 
 ## Структура
 
