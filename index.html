@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ванна+ — реставрация ванн жидким акрилом в Томске</title>
+<meta name="description" content="Реставрация ванн жидким акрилом в Томске за один визит. Без демонтажа, 7 000 ₽, гарантия 12 месяцев. +7 952 803-80-02">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Unbounded:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #16150F;
+    --paper: #F7F5EE;
+    --muted: #6E6A5C;
+    --accent: #2F4B77;
+    --pad-x: clamp(20px, 5vw, 72px);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--paper); }
+  body { font-family: 'Golos Text', sans-serif; color: var(--ink); }
+  a { color: inherit; }
+  a:hover { color: var(--accent); }
+  ::selection { background: var(--ink); color: var(--paper); }
+  img { display: block; max-width: 100%; }
+  .u { font-family: Unbounded, sans-serif; }
+  @keyframes marquee-slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  .page { min-height: 100vh; overflow-x: clip; }
+
+  /* ---------- Шапка ---------- */
+  .top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px 24px; padding: 26px var(--pad-x) 22px; flex-wrap: wrap; }
+  .logo { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  .logo b { font-family: Unbounded, sans-serif; font-weight: 900; font-size: 26px; letter-spacing: -0.02em; }
+  .logo span { font-size: 14px; color: var(--muted); }
+  .top-phone { font-family: Unbounded, sans-serif; font-weight: 600; font-size: 17px; text-decoration: none; white-space: nowrap; }
+
+  .marquee { border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); overflow: hidden; white-space: nowrap; background: var(--paper); position: relative; z-index: 2; }
+  .marquee-track { display: inline-block; animation: marquee-slide 22s linear infinite; font-family: Unbounded, sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.14em; }
+  .marquee-track span { display: inline-block; padding: 10px 0; }
+  .marquee-track i { font-style: normal; margin: 0 28px; color: var(--accent); }
+
+  /* ---------- Фото-сцена: фото стоит, текст едет поверх ---------- */
+  .stage { position: relative; }
+  .stage-bg-wrap { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .stage-bg { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+  @supports (height: 100lvh) { .stage-bg { height: 100lvh; } }
+  .stage-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; }
+  .stage-bg .ov-hero { position: absolute; inset: 0; background: linear-gradient(rgba(247,245,238,.94) 0%, rgba(247,245,238,.72) 55%, rgba(247,245,238,.35) 100%); }
+  .stage-bg .ov-text { position: absolute; inset: 0; opacity: 0; background: rgba(247,245,238,.9); will-change: opacity; }
+  @media (min-width: 900px) {
+    .stage-bg .ov-text { background: linear-gradient(90deg, rgba(247,245,238,.96) 0%, rgba(247,245,238,.9) 48%, rgba(247,245,238,.3) 100%); }
+  }
+  .stage > section { position: relative; z-index: 1; }
+
+  .hero { padding: clamp(48px, 8vw, 110px) var(--pad-x) clamp(72px, 10vw, 150px); }
+  .hero h1 { font-family: Unbounded, sans-serif; font-weight: 900; font-size: clamp(40px, 9.5vw, 148px); line-height: .96; letter-spacing: -0.03em; margin: 0; text-transform: uppercase; }
+  .hero h1 span { color: var(--accent); }
+  .hero-row { display: flex; flex-wrap: wrap; gap: 32px 40px; align-items: flex-end; justify-content: space-between; margin-top: clamp(32px, 5vw, 64px); }
+  .hero-row p { max-width: 460px; font-size: clamp(17px, 1.6vw, 21px); line-height: 1.5; margin: 0; text-wrap: pretty; }
+
+  .btn { display: inline-block; border: 0; cursor: pointer; text-decoration: none; font-family: Unbounded, sans-serif; font-weight: 600; border-radius: 999px; transition: transform .15s ease, background-color .15s ease; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .btn-dark { background: var(--ink); color: var(--paper); font-size: 17px; padding: 20px 36px; }
+  .btn-dark:hover { color: var(--paper); background: #000; }
+  .btn-accent { background: var(--accent); color: var(--paper); font-size: 18px; padding: 22px 44px; }
+  .btn-accent:hover { color: var(--paper); background: #243b5f; }
+
+  .problem { padding: clamp(40px, 6vw, 80px) var(--pad-x) 0; }
+  .problem-inner { max-width: 1400px; margin: 0 auto; }
+  .problem-col { max-width: 620px; }
+  .eyebrow { font-family: Unbounded, sans-serif; font-weight: 600; font-size: 13px; letter-spacing: .22em; text-transform: uppercase; margin-bottom: 20px; }
+  .h2 { font-family: Unbounded, sans-serif; font-weight: 800; font-size: clamp(30px, 4vw, 54px); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 28px; text-transform: uppercase; }
+  .pain { display: flex; gap: 16px; align-items: baseline; padding: 16px 0; border-top: 1.5px solid var(--ink); }
+  .pain:last-child { border-bottom: 1.5px solid var(--ink); }
+  .pain span { font-family: Unbounded, sans-serif; font-weight: 600; font-size: 14px; min-width: 34px; color: var(--accent); }
+  .pain p { margin: 0; font-size: 17px; line-height: 1.5; }
+  /* мягкий переход от фото к светлому фону */
+  .fade-out { height: clamp(140px, 22vh, 240px); background: linear-gradient(rgba(247,245,238,0), var(--paper)); margin: 0 calc(var(--pad-x) * -1); }
+
+  /* ---------- До / после ---------- */
+  .result { background: var(--paper); padding: clamp(24px, 4vw, 60px) var(--pad-x) clamp(64px, 8vw, 110px); position: relative; z-index: 1; }
+  .result-grid { display: grid; gap: clamp(32px, 5vw, 64px); max-width: 1400px; margin: 0 auto; align-items: center; }
+  .result-text p { font-size: 18px; line-height: 1.55; margin: 0 0 18px; max-width: 520px; text-wrap: pretty; }
+  .result-text p:last-child { margin-bottom: 0; }
+  .ba { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(10px, 1.6vw, 24px); width: 100%; }
+  .ba figure { margin: 0; position: relative; }
+  .ba img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; background: #e4e1d6; }
+  .tag { position: absolute; top: -12px; font-family: Unbounded, sans-serif; font-weight: 600; font-size: 13px; letter-spacing: .14em; padding: 9px 16px; color: var(--paper); pointer-events: none; }
+  .tag-before { left: -6px; background: #3E3722; transform: rotate(-3deg); }
+  .tag-after { right: -6px; background: var(--accent); transform: rotate(3deg); }
+  @media (min-width: 960px) {
+    .result-grid { grid-template-columns: minmax(380px, 1fr) minmax(0, 1.5fr); }
+    .result .h2 { font-size: clamp(28px, 2.8vw, 44px); }
+    /* оба фото целиком помещаются в один экран */
+    .ba { max-width: calc((100vh - 150px) * 1.6 + 24px); justify-self: end; }
+  }
+
+  /* ---------- Процесс ---------- */
+  .process { background: var(--ink); color: var(--paper); padding: clamp(64px, 8vw, 110px) var(--pad-x); }
+  .wrap { max-width: 1400px; margin: 0 auto; }
+  .process-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: clamp(36px, 5vw, 64px); }
+  .process-head .h2 { margin: 0; }
+  .process-head span { font-family: Unbounded, sans-serif; font-size: 15px; color: #8B8877; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 2px; }
+  .step { background: var(--ink); outline: 1px solid #3A382C; padding: 28px 24px 36px; }
+  .step .n { font-family: Unbounded, sans-serif; font-weight: 900; font-size: 44px; color: #4A4838; line-height: 1; }
+  .step .n.hl { color: #5B7DB3; }
+  .step h3 { font-family: Unbounded, sans-serif; font-weight: 600; font-size: 17px; margin: 18px 0 10px; }
+  .step p { margin: 0; font-size: 15px; line-height: 1.5; color: #B9B6A6; }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2px; margin-top: 2px; }
+  .fact { background: #1E1D14; outline: 1px solid #3A382C; padding: 22px 24px; display: flex; flex-direction: column; gap: 4px; }
+  .fact b { font-family: Unbounded, sans-serif; font-weight: 800; font-size: 30px; }
+  .fact span { font-size: 14px; color: #8B8877; }
+
+  /* ---------- Цена ---------- */
+  .price { background: var(--paper); padding: clamp(72px, 9vw, 130px) var(--pad-x); text-align: center; }
+  .price .eyebrow { color: var(--muted); margin-bottom: 12px; }
+  .price-num { font-family: Unbounded, sans-serif; font-weight: 900; font-size: clamp(72px, 14vw, 220px); line-height: 1; letter-spacing: -0.04em; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: clamp(28px, 4vw, 44px) 0 clamp(32px, 5vw, 52px); }
+  .chips span { border: 1.5px solid var(--ink); border-radius: 999px; padding: 10px 20px; font-size: 15px; }
+
+  /* ---------- FAQ ---------- */
+  .faq { background: var(--paper); padding: 0 var(--pad-x) clamp(72px, 9vw, 120px); }
+  .faq-inner { max-width: 860px; margin: 0 auto; }
+  .faq h2 { font-family: Unbounded, sans-serif; font-weight: 800; font-size: clamp(26px, 3.4vw, 44px); letter-spacing: -0.02em; margin: 0 0 32px; text-transform: uppercase; }
+  .qa { border-top: 1.5px solid var(--ink); padding: 24px 0; }
+  .qa:last-child { border-bottom: 1.5px solid var(--ink); }
+  .qa h3 { font-family: Unbounded, sans-serif; font-weight: 600; font-size: 18px; margin: 0 0 10px; }
+  .qa p { margin: 0; font-size: 16px; line-height: 1.55; color: #4B4838; max-width: 640px; }
+
+  /* ---------- Футер ---------- */
+  .foot { background: var(--ink); color: var(--paper); padding: clamp(48px, 6vw, 80px) var(--pad-x); }
+  .foot-inner { max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between; }
+  .foot-logo { font-family: Unbounded, sans-serif; font-weight: 900; font-size: clamp(32px, 5vw, 64px); letter-spacing: -0.02em; line-height: 1; }
+  .foot p { margin: 14px 0 0; font-size: 15px; color: #8B8877; max-width: 380px; line-height: 1.5; }
+  .foot-contact { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+  .foot-phone { font-family: Unbounded, sans-serif; font-weight: 600; font-size: clamp(20px, 2.4vw, 30px); text-decoration: none; color: var(--paper); white-space: nowrap; }
+  .foot-phone:hover { color: #9DB5DC; }
+  .foot-contact span { font-size: 14px; color: #8B8877; }
+  .foot-legal { max-width: 1400px; margin: 36px auto 0; padding-top: 20px; border-top: 1px solid #3A382C; display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 13px; color: #8B8877; }
+  .foot-legal a { color: #8B8877; }
+  .foot-legal a:hover { color: var(--paper); }
+
+  /* ---------- Анкета ---------- */
+  .lead { border: 2px solid var(--ink); border-radius: 0; padding: 0; width: min(620px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); background: var(--paper); color: var(--ink); overflow: auto; }
+  .lead::backdrop { background: rgba(22,21,15,.6); backdrop-filter: blur(3px); }
+  .lead-body { padding: clamp(24px, 5vw, 40px); position: relative; }
+  .lead-close { position: absolute; top: 12px; right: 12px; width: 40px; height: 40px; border: 0; background: transparent; font-size: 28px; line-height: 1; cursor: pointer; color: var(--ink); }
+  .lead h2 { font-family: Unbounded, sans-serif; font-weight: 800; font-size: clamp(22px, 5vw, 30px); line-height: 1.1; text-transform: uppercase; letter-spacing: -0.02em; margin: 0 40px 10px 0; }
+  .lead .sub { margin: 0 0 24px; font-size: 15px; line-height: 1.5; color: var(--muted); }
+  .lead-frame { margin: 0 -8px; }
+  .lead-frame iframe { display: block; width: 100%; min-height: 420px; border: 0; }
+  .lead-alt { margin: 16px 0 0; font-size: 14px; color: var(--muted); }
+  .lead-alt a { color: var(--ink); font-weight: 600; white-space: nowrap; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+    .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="top">
+    <div class="logo"><b>ВАННА+</b><span>реставрация ванн · Томск</span></div>
+    <a class="top-phone" href="tel:+79528038002">+7 952 803-80-02</a>
+  </header>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>БЕЗ ДЕМОНТАЖА<i>●</i></span><span>ОДИН ВИЗИТ<i>●</i></span><span>ГОД ГАРАНТИИ<i>●</i></span><span>7 000 ₽<i>●</i></span><span>ЖИДКИЙ АКРИЛ<i>●</i></span><span>ТОМСК<i>●</i></span><span>БЕЗ ДЕМОНТАЖА<i>●</i></span><span>ОДИН ВИЗИТ<i>●</i></span><span>ГОД ГАРАНТИИ<i>●</i></span><span>7 000 ₽<i>●</i></span><span>ЖИДКИЙ АКРИЛ<i>●</i></span><span>ТОМСК<i>●</i></span>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="stage-bg-wrap" aria-hidden="true">
+      <div class="stage-bg">
+        <img src="img/hero.jpg" alt="">
+        <div class="ov-hero"></div>
+        <div class="ov-text" id="ovText"></div>
+      </div>
+    </div>
+
+    <section class="hero">
+      <h1>Ванна как новая<br><span>за один визит.</span></h1>
+      <div class="hero-row">
+        <p>Наливная реставрация ванн жидким акрилом в Томске. Приезжаю на дом и восстанавливаю старую ванну за один день — без демонтажа, грязи и лишних расходов.</p>
+        <button class="btn btn-dark js-open-lead" type="button">Записаться на реставрацию</button>
+      </div>
+    </section>
+
+    <section class="problem" id="problem">
+      <div class="problem-inner">
+        <div class="problem-col">
+          <div class="eyebrow">Проблема</div>
+          <h2 class="h2">Когда ванну уже не отмыть</h2>
+          <div>
+            <div class="pain"><span>01</span><p>Эмаль стёрлась до шершавого чугуна — губка застревает, нога скользит.</p></div>
+            <div class="pain"><span>02</span><p>Ржавые подтёки под краном не отмываются никакими средствами.</p></div>
+            <div class="pain"><span>03</span><p>Сколы до чёрного металла — и они растут.</p></div>
+            <div class="pain"><span>04</span><p>Замена — это демонтаж, разбитая плитка и расходы от 40 000 ₽.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-out"></div>
+    </section>
+  </div>
+
+  <section class="result" id="result">
+    <div class="result-grid">
+      <div class="result-text">
+        <div class="eyebrow" style="color: var(--accent);">Результат</div>
+        <h2 class="h2">Белоснежный глянец на годы</h2>
+        <p>Жидкий акрил наливается сверху и стекает по бортам сплошным слоем 4–6 мм — без кисти, без полос, без пузырей. Он сам находит форму ванны и застывает в идеально гладкую, тёплую на ощупь поверхность.</p>
+        <p>Это та же ванна. Тот же чугун, тот же слив, та же плитка вокруг. Просто теперь она белоснежная — и остаётся такой годами.</p>
+      </div>
+      <div class="ba">
+        <figure>
+          <img src="img/before.jpg" alt="Ванна до реставрации: пожелтевшая эмаль и сколы на бортах" width="880" height="1100" loading="lazy">
+          <div class="tag tag-before">ДО</div>
+        </figure>
+        <figure>
+          <img src="img/after.jpg" alt="Та же ванна после реставрации жидким акрилом: белое глянцевое покрытие" width="880" height="1100" loading="lazy">
+          <div class="tag tag-after">ПОСЛЕ</div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="wrap">
+      <div class="process-head">
+        <h2 class="h2">Один визит</h2>
+        <span>≈ 3–4 часа работы</span>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><h3>Зачистка</h3><p>Снимаю старую эмаль абразивом, вывожу сколы и ржавчину.</p></div>
+        <div class="step"><div class="n">2</div><h3>Подготовка</h3><p>Обезжириваю, прогреваю, защищаю плитку и пол. Пыли не будет.</p></div>
+        <div class="step"><div class="n hl">3</div><h3>Налив</h3><p>Главные 40 минут: акрил медленно стекает по бортам сплошной белой волной.</p></div>
+        <div class="step"><div class="n">4</div><h3>Сушка</h3><p>36 часов без воды — и ванной можно пользоваться.</p></div>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>10 лет</b><span>опыта наливом</span></div>
+        <div class="fact"><b>1 год</b><span>гарантии письменно</span></div>
+        <div class="fact"><b>0</b><span>демонтажа и грязи</span></div>
+        <div class="fact"><b>4–6 мм</b><span>слой акрила</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="price">
+    <div class="eyebrow">Фиксированная цена — без доплат и скрытых работ</div>
+    <div class="price-num">7 000 ₽</div>
+    <div class="chips">
+      <span>материал — жидкий акрил</span>
+      <span>работа под ключ</span>
+      <span>выезд по Томску</span>
+      <span>гарантия 12 месяцев</span>
+    </div>
+    <button class="btn btn-accent js-open-lead" type="button">Записаться на налив</button>
+  </section>
+
+  <section class="faq">
+    <div class="faq-inner">
+      <h2>Спрашивают всегда</h2>
+      <div>
+        <div class="qa"><h3>Это надолго? Или через год снова жёлтая?</h3><p>При нормальном уходе покрытие служит 8–12 лет. Гарантия — 12 месяцев, письменно.</p></div>
+        <div class="qa"><h3>Есть ли запах при работе?</h3><p>Запах есть первые несколько часов — примерно как у свежей краски. После проветривания он полностью уходит.</p></div>
+        <div class="qa"><h3>А если ванна совсем убитая?</h3><p>Присылайте фото — оценю честно. Акрил закрывает сколы, ржавчину и шершавость. Не подходит он только при сквозных повреждениях чугуна.</p></div>
+        <div class="qa"><h3>Чем мыть потом?</h3><p>Мягкой губкой и обычным гелем. Абразивные порошки и хлор не нужны: к гладкой поверхности грязь не пристаёт.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="foot-inner">
+      <div>
+        <div class="foot-logo">ВАННА+</div>
+        <p>Томск и пригород · ежедневно 9:00–21:00.<br>Пришлите фото ванны — отвечу в тот же день.</p>
+      </div>
+      <div class="foot-contact">
+        <a class="foot-phone" href="tel:+79528038002">+7 952 803-80-02</a>
+        <span>звонок или сообщение — как удобнее</span>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <a href="politika.html" target="_blank">Политика обработки персональных данных</a>
+      <a href="soglasie.html" target="_blank">Согласие на обработку персональных данных</a>
+    </div>
+  </footer>
+</div>
+
+<!-- ---------- Анкета записи (Яндекс Форма) ---------- -->
+<dialog class="lead" id="lead" aria-labelledby="leadTitle">
+  <div class="lead-body">
+    <button class="lead-close" type="button" aria-label="Закрыть" data-close>×</button>
+    <h2 id="leadTitle">Запись на реставрацию</h2>
+    <p class="sub">Оставьте контакты — перезвоню в течение дня, отвечу на вопросы и договоримся о времени.</p>
+    <div class="lead-frame">
+      <iframe src="https://forms.yandex.ru/u/6aaa6a61eb61469c4c0f0ca7?iframe=1" frameborder="0" name="ya-form-6aaa6a61eb61469c4c0f0ca7" width="650" title="Форма записи на реставрацию"></iframe>
+    </div>
+    <p class="lead-alt">Удобнее позвонить? <a href="tel:+79528038002">+7 952 803-80-02</a></p>
+  </div>
+</dialog>
+<script src="https://forms.yandex.ru/_static/embed.js"></script>
+
+<script>
+(function () {
+  // ---------- Фото-сцена: плавно осветляем фото, когда поверх едет текст ----------
+  var ov = document.getElementById('ovText');
+  var problem = document.getElementById('problem');
+  var ticking = false;
+  function updateOverlay() {
+    ticking = false;
+    var vh = window.innerHeight;
+    var top = problem.getBoundingClientRect().top;
+    var p = (vh - top) / (vh * 0.55);
+    ov.style.opacity = Math.max(0, Math.min(1, p)).toFixed(3);
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(updateOverlay); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  updateOverlay();
+
+  // ---------- Анкета ----------
+  var dlg = document.getElementById('lead');
+  function openLead() {
+    if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+  }
+  function closeLead() { if (dlg.close) dlg.close(); else dlg.removeAttribute('open'); }
+  document.querySelectorAll('.js-open-lead').forEach(function (b) { b.addEventListener('click', openLead); });
+  dlg.querySelectorAll('[data-close]').forEach(function (b) { b.addEventListener('click', closeLead); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) closeLead(); });
+})();
+</script>
+</body>
+</html>
