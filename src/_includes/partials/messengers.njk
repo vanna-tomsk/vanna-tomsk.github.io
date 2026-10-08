@@ -1,0 +1,8 @@
+{%- set m = site.messengers -%}
+{%- if m.whatsapp or m.telegram or m.max %}
+<div class="msgr">
+  {%- if m.whatsapp %}<a class="msgr-btn js-msgr" data-msgr="whatsapp" href="{{ m.whatsapp }}" target="_blank" rel="noopener">WhatsApp</a>{% endif %}
+  {%- if m.telegram %}<a class="msgr-btn js-msgr" data-msgr="telegram" href="{{ m.telegram }}" target="_blank" rel="noopener">Telegram</a>{% endif %}
+  {%- if m.max %}<a class="msgr-btn js-msgr" data-msgr="max" href="{{ m.max }}" target="_blank" rel="noopener">MAX</a>{% endif %}
+</div>
+{%- endif %}

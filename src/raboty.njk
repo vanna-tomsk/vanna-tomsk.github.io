@@ -1,0 +1,57 @@
+---
+layout: layouts/base.njk
+permalink: /raboty/
+title: "Работы и отзывы — реставрация ванн в Томске до и после | Ванна+"
+description: "Фото ванн до и после реставрации жидким акрилом в Томске и отзывы клиентов. Посмотрите, как меняется старая ванна за один визит."
+crumb: "Работы и отзывы"
+---
+<section class="page-head">
+  <div class="wrap">
+    <h1>Работы <span>и отзывы</span></h1>
+    <div class="page-head-row">
+      <p class="lead-p">Ванны в Томске до и после реставрации жидким акрилом. Все фото — мои работы.</p>
+      <button class="btn btn-dark js-open-lead" type="button">Хочу так же</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2 class="h2">До и после<small>Фото реставрации ванн жидким акрилом</small></h2>
+    <div class="works">
+      {%- for w in works %}
+      <article class="work">
+        <div class="ba">
+          <figure>
+            <picture><source srcset="{{ w.before }}.webp" type="image/webp"><img src="{{ w.before }}.jpg" alt="{{ w.altBefore }}" width="{{ w.w }}" height="{{ w.h }}" loading="lazy"></picture>
+            <div class="tag tag-before">ДО</div>
+          </figure>
+          <figure>
+            <picture><source srcset="{{ w.after }}.webp" type="image/webp"><img src="{{ w.after }}.jpg" alt="{{ w.altAfter }}" width="{{ w.w }}" height="{{ w.h }}" loading="lazy"></picture>
+            <div class="tag tag-after">ПОСЛЕ</div>
+          </figure>
+        </div>
+        <div class="work-cap"><h3>{{ w.title }}</h3>{% if w.note %}<p>{{ w.note }}</p>{% endif %}</div>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" style="border-top: 2px solid var(--line);" id="otzyvy">
+  <div class="wrap">
+    <h2 class="h2">Отзывы клиентов<small>Что говорят после реставрации</small></h2>
+    {% if reviews.length %}
+    <ul class="reviews">
+      {%- for r in reviews %}
+      <li class="review"><blockquote>{{ r.text }}</blockquote><footer>{{ r.name }}{% if r.place %}<span>{{ r.place }}</span>{% endif %}</footer></li>
+      {%- endfor %}
+    </ul>
+    {% else %}
+    <p class="empty">Здесь скоро появятся отзывы клиентов. Делали у меня реставрацию? Буду благодарен за пару слов — напишите или позвоните: <a href="tel:{{ site.phoneHref }}">{{ site.phone }}</a>.</p>
+    {% endif %}
+    {% if site.yandexMapsReviews %}<p><a class="more-link" href="{{ site.yandexMapsReviews }}" target="_blank" rel="noopener">Отзывы на Яндекс Картах →</a></p>{% endif %}
+  </div>
+</section>
+
+{% include "partials/cta.njk" %}

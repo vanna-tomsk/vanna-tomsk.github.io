@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+{%- set canonical = page.url | absUrl(site.url) %}
+{% if noindex %}<meta name="robots" content="noindex, follow">{% else %}<link rel="canonical" href="{{ canonical }}">{% endif %}
+<meta name="theme-color" content="#F7F5EE">
+<meta name="format-detection" content="telephone=no">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:title" content="{{ ogTitle or title }}">
+<meta property="og:description" content="{{ ogDescription or description }}">
+<meta property="og:image" content="{{ '/og-image.jpg' | absUrl(site.url) }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preload" href="/assets/fonts/unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/golos-text-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+{% if preloadImage %}<link rel="preload" href="{{ preloadImage }}" as="image" type="image/webp" fetchpriority="high">{% endif %}
+<style>{% inlineCss %}</style>
+
+{% include "partials/schema.njk" %}
+
+<!-- Yandex.Metrika counter -->
+<script>
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id={{ site.metrikaId }}','ym');
+ym({{ site.metrikaId }},'init',{ssr:true,webvisor:true,clickmap:true,referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/{{ site.metrikaId }}" style="position:absolute;left:-9999px" alt=""></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body class="{{ bodyClass }}">
+<a class="skip" href="#main">К содержанию</a>
+{% include "partials/header.njk" %}
+
+<main id="main">
+{% if crumb %}
+<nav class="crumbs wrap" aria-label="Хлебные крошки">
+  <a href="/">Главная</a><span aria-hidden="true">/</span><span aria-current="page">{{ crumb }}</span>
+</nav>
+{% endif %}
+{{ content | safe }}
+</main>
+
+{% include "partials/footer.njk" %}
+{% if not hideLeadDialog %}{% include "partials/lead-dialog.njk" %}{% endif %}
+<script>window.SITE={metrika:{{ site.metrikaId }},endpoint:{{ site.formEndpoint | json | safe }}};</script>
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

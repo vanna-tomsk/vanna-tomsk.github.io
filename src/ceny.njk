@@ -1,0 +1,84 @@
+---
+layout: layouts/base.njk
+permalink: /ceny/
+title: "Цены на реставрацию ванн в Томске — от 7 000 ₽ | Ванна+"
+description: "Цены на реставрацию ванн жидким акрилом в Томске: 7 000 ₽ под ключ, без доплат. Установка керамического уголка, замена сифона. Выезд по Томску и Томскому району бесплатно."
+crumb: "Цены"
+services:
+  - name: "Реставрация ванн жидким акрилом"
+    serviceType: "Реставрация ванны наливным акрилом"
+    description: "Реставрация ванны жидким акрилом под ключ: выезд, зачистка старого слоя, материал, работа, уборка. Гарантия 12 месяцев."
+    priceKey: restoration
+---
+<section class="page-head">
+  <div class="wrap">
+    <h1>Цены на <span>реставрацию ванн</span></h1>
+    <div class="page-head-row">
+      <p class="lead-p">Цена фиксированная: называю её до начала работ, и после она не меняется. Никаких доплат за материал, выезд или уборку.</p>
+      <button class="btn btn-dark js-open-lead" type="button">Записаться</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2 class="h2">Прайс<small>Реставрация ванн и сопутствующие работы в Томске</small></h2>
+    <ul class="pricelist">
+      <li>
+        <h3>Реставрация ванны жидким акрилом</h3>
+        <span class="val">{{ site.prices.restoration | rub }}</span>
+        <p>Под ключ, за один визит. Слой акрила 4–6 мм, гарантия 12 месяцев письменно.</p>
+      </li>
+      <li>
+        <h3>Установка керамического уголка</h3>
+        <span class="val{% if not site.prices.corner %} ask{% endif %}">{{ site.prices.corner | rub("от ") }}</span>
+        <p>На следующий день после реставрации, когда акрил наберёт прочность.</p>
+      </li>
+      <li>
+        <h3>Замена сифона — сифон клиента</h3>
+        <span class="val{% if not site.prices.siphonClient %} ask{% endif %}">{{ site.prices.siphonClient | rub }}</span>
+        <p>Ванна, раковина, кухонная мойка или душевая кабина. <a href="/zamena-sifona/">Подробнее о замене сифона</a></p>
+      </li>
+      <li>
+        <h3>Замена сифона — сифон мастера</h3>
+        <span class="val{% if not site.prices.siphonMaster %} ask{% endif %}">{{ site.prices.siphonMaster | rub }}</span>
+        <p>Привезу подходящий сифон сам.</p>
+      </li>
+      <li>
+        <h3>Выезд по Томску и Томскому району</h3>
+        <span class="val">бесплатно</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 0;">
+  <div class="wrap">
+    <h2 class="h2">Что входит в стоимость<small>Реставрация ванны за {{ site.prices.restoration | rub }} — всё включено</small></h2>
+    <ul class="included">
+      <li>Выезд специалиста</li>
+      <li>Зачистка старого слоя</li>
+      <li>Профессиональный жидкий акрил</li>
+      <li>Работа мастера</li>
+      <li>Уборка мусора</li>
+      <li>Гарантия 12 месяцев</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 0;">
+  <div class="wrap two-col">
+    <div class="prose">
+      <h2>Почему реставрация выгоднее замены</h2>
+      <p>Замена ванны — это демонтаж старой, вынос, покупка новой, установка и почти всегда ремонт плитки вокруг. Даже без плитки выходит от 40 000 ₽ и несколько дней без ванной.</p>
+      <p>Реставрация жидким акрилом занимает один визит: ванна остаётся на месте, плитка не трогается, а через 36 часов ванной уже можно пользоваться.</p>
+    </div>
+    <div class="callout">
+      <h3>Не уверены, подойдёт ли акрил?</h3>
+      <p>Пришлите фото ванны — оценю честно и назову цену заранее.</p>
+      <button class="btn btn-sm js-open-lead" type="button">Оставить заявку</button>
+    </div>
+  </div>
+</section>
+
+{% include "partials/cta.njk" %}

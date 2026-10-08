@@ -1,0 +1,10 @@
+{%- from "partials/lead-form.njk" import leadForm with context -%}
+<dialog class="lead" id="lead" aria-labelledby="leadTitle">
+  <div class="lead-body">
+    <button class="lead-close" type="button" aria-label="Закрыть" data-close>×</button>
+    <p class="lead-title" id="leadTitle">{{ leadTitle or "Запись на реставрацию" }}</p>
+    <p class="sub">Оставьте контакты — перезвоню в течение дня, отвечу на вопросы и договоримся о времени.</p>
+    {{ leadForm("dlg", leadService) }}
+    <p class="lead-alt">Удобнее позвонить? <a href="tel:{{ site.phoneHref }}">{{ site.phone }}</a></p>
+  </div>
+</dialog>

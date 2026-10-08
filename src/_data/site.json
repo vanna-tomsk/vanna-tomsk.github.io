@@ -1,0 +1,45 @@
+{
+  "_comment": "Главные настройки сайта. Пустые значения — данные, которые ещё нужно получить от мастера.",
+
+  "name": "Ванна+",
+  "url": "https://vanna-tomsk.ru",
+  "city": "Томск",
+  "area": "Томск и Томский район",
+  "areaShort": "Томску и Томскому району",
+  "hours": "ежедневно 9:00–21:00",
+  "phone": "+7 952 803-80-02",
+  "phoneHref": "+79528038002",
+  "email": "",
+
+  "metrikaId": 113150444,
+
+  "formEndpoint": "",
+  "yandexFormId": "6aaa6a61eb61469c4c0f0ca7",
+
+  "messengers": {
+    "whatsapp": "",
+    "telegram": "",
+    "max": ""
+  },
+
+  "master": {
+    "name": "",
+    "experienceYears": 10,
+    "photo": ""
+  },
+
+  "prices": {
+    "restoration": 7000,
+    "corner": null,
+    "siphonClient": null,
+    "siphonMaster": null
+  },
+
+  "warrantyMonths": 12,
+  "serviceLife": "8–12 лет",
+  "workHours": "3–4 часа",
+  "dryHours": 36,
+  "layerMm": "4–6 мм",
+
+  "yandexMapsReviews": ""
+}

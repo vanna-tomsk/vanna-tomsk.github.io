@@ -1,0 +1,37 @@
+{#- Форма заявки. Пока не настроен приёмник заявок (site.formEndpoint), показывается Яндекс Форма. -#}
+{%- macro leadForm(id, service = "") -%}
+{%- if site.formEndpoint %}
+<form class="lead-form js-lead-form" id="{{ id }}" action="{{ site.formEndpoint }}" method="post" novalidate>
+  <div class="field">
+    <label for="{{ id }}-name">Как к вам обращаться</label>
+    <input id="{{ id }}-name" name="name" type="text" autocomplete="name" required maxlength="60">
+  </div>
+  <div class="field">
+    <label for="{{ id }}-phone">Телефон</label>
+    <input id="{{ id }}-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="+7 ___ ___-__-__">
+  </div>
+  <div class="field">
+    <label for="{{ id }}-service">Что нужно</label>
+    <select id="{{ id }}-service" name="service">
+      <option{% if service == "restoration" or not service %} selected{% endif %}>Реставрация ванны</option>
+      <option>Реставрация ванны + керамический уголок</option>
+      <option{% if service == "siphon" %} selected{% endif %}>Замена сифона</option>
+      <option>Другое — напишу в комментарии</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="{{ id }}-comment">Комментарий <span>(необязательно)</span></label>
+    <textarea id="{{ id }}-comment" name="comment" rows="2" maxlength="600" placeholder="Район, размер ванны, удобное время"></textarea>
+  </div>
+  <div class="hp" aria-hidden="true"><label>Сайт<input name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
+  <label class="check">
+    <input type="checkbox" name="consent" required>
+    <span>Согласен на <a href="/soglasie/" target="_blank">обработку персональных данных</a> в соответствии с <a href="/politika/" target="_blank">политикой</a></span>
+  </label>
+  <button class="btn btn-accent" type="submit">Отправить заявку</button>
+  <p class="form-status" role="status" aria-live="polite"></p>
+</form>
+{%- else %}
+<div class="lead-frame" data-yaform="https://forms.yandex.ru/u/{{ site.yandexFormId }}?iframe=1"></div>
+{%- endif %}
+{%- endmacro -%}
