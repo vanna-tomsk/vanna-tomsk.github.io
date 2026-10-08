@@ -345,3 +345,7 @@ picture { display: contents; }
   .pricelist li { grid-template-columns: 1fr; }
   .pricelist .val { text-align: left; }
 }
+/* Горизонтальные фото «до/после» */
+.ba-wide img { aspect-ratio: 16 / 9; }
+.work .ba-wide { max-width: 1240px; }
+@media (max-width: 700px) { .ba-wide { grid-template-columns: 1fr; gap: 22px; } }

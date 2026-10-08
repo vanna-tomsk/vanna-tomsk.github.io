@@ -21,7 +21,7 @@ crumb: "Работы и отзывы"
     <div class="works">
       {%- for w in works %}
       <article class="work">
-        <div class="ba">
+        <div class="ba{% if w.w > w.h %} ba-wide{% endif %}">
           <figure>
             <picture><source srcset="{{ w.before }}.webp" type="image/webp"><img src="{{ w.before }}.jpg" alt="{{ w.altBefore }}" width="{{ w.w }}" height="{{ w.h }}" loading="lazy"></picture>
             <div class="tag tag-before">ДО</div>
