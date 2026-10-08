@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /spasibo/
+Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&ysclid
+
+Sitemap: https://vanna-tomsk.ru/sitemap.xml
