@@ -9,7 +9,7 @@
   "hours": "ежедневно 9:00–21:00",
   "phone": "+7 952 803-80-02",
   "phoneHref": "+79528038002",
-  "email": "",
+  "email": "vanna-plus@rambler.ru",
 
   "metrikaId": 113150444,
 
@@ -30,9 +30,8 @@
 
   "prices": {
     "restoration": 7000,
-    "corner": null,
-    "siphonClient": null,
-    "siphonMaster": null
+    "corner": 500,
+    "siphon": 500
   },
 
   "warrantyMonths": 12,

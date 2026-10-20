@@ -32,17 +32,12 @@ services:
       <li>
         <h3>Установка керамического уголка</h3>
         <span class="val{% if not site.prices.corner %} ask{% endif %}">{{ site.prices.corner | rub("от ") }}</span>
-        <p>На следующий день после реставрации, когда акрил наберёт прочность.</p>
+        <p>На следующий день после реставрации, когда акрил наберёт прочность. Цена зависит от объёма работ.</p>
       </li>
       <li>
-        <h3>Замена сифона — сифон клиента</h3>
-        <span class="val{% if not site.prices.siphonClient %} ask{% endif %}">{{ site.prices.siphonClient | rub }}</span>
-        <p>Ванна, раковина, кухонная мойка или душевая кабина. <a href="/zamena-sifona/">Подробнее о замене сифона</a></p>
-      </li>
-      <li>
-        <h3>Замена сифона — сифон мастера</h3>
-        <span class="val{% if not site.prices.siphonMaster %} ask{% endif %}">{{ site.prices.siphonMaster | rub }}</span>
-        <p>Привезу подходящий сифон сам.</p>
+        <h3>Замена сифона</h3>
+        <span class="val">{{ site.prices.siphon | rub("от ") }}</span>
+        <p>Ванна, раковина, кухонная мойка или душевая кабина. Итоговая цена зависит от объёма работ и от того, чей сифон ставим — ваш или мой. <a href="/zamena-sifona/">Подробнее о замене сифона</a></p>
       </li>
       <li>
         <h3>Выезд по Томску и Томскому району</h3>
