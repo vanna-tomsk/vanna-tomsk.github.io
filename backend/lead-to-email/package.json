@@ -1,8 +1,0 @@
-{
-  "name": "lead-to-email",
-  "private": true,
-  "main": "index.js",
-  "dependencies": {
-    "nodemailer": "^6.9.16"
-  }
-}

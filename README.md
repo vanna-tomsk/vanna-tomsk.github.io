@@ -16,7 +16,7 @@ src/_includes/          — шаблон страницы, шапка, подв�
 src/assets/css/main.css — стили (вставляются в <head>)
 src/assets/js/main.js   — меню, форма, цели Метрики
 src/*.njk               — страницы
-backend/lead-to-email/  — функция для Yandex Cloud: заявка с формы → письмо на почту
+backend/lead-to-telegram/ — функция для Yandex Cloud: заявка с формы → сообщение в Telegram-бот
 ```
 
 Локально: `npm install`, затем `npm start` (сайт на http://localhost:8080) или `npm run build` (результат в `_site/`).
