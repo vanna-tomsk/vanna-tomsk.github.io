@@ -156,8 +156,10 @@
         utm: utm
       };
       btn.disabled = true; btn.textContent = "Отправляю…";
-      fetch(form.action, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
-        .then(function (r) { if (!r.ok) throw new Error(r.status); return r; })
+      // text/plain — «простой» запрос без предварительной CORS-проверки (нужно для Google Apps Script)
+      fetch(form.action, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data), redirect: "follow" })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function (res) { if (!res || !res.ok) throw new Error((res && res.error) || "fail"); })
         .then(function () {
           goal("lead", { service: data.service });
           setTimeout(function () { location.href = "/spasibo/"; }, 300);
