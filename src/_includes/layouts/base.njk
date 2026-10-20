@@ -56,7 +56,7 @@ ym({{ site.metrikaId }},'init',{ssr:true,webvisor:true,clickmap:true,referrer:do
 
 {% include "partials/footer.njk" %}
 {% if not hideLeadDialog %}{% include "partials/lead-dialog.njk" %}{% endif %}
-<script>window.SITE={metrika:{{ site.metrikaId }},endpoint:{{ site.formEndpoint | json | safe }}};</script>
+<script>window.SITE={metrika:{{ site.metrikaId }},endpoint:{{ site.formEndpoint | json | safe }},phone:{{ site.phone | json | safe }},phoneHref:{{ site.phoneHref | json | safe }}};</script>
 <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

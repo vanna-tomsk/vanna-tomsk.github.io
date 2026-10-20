@@ -16,10 +16,11 @@
   "formEndpoint": "",
   "yandexFormId": "6aaa6a61eb61469c4c0f0ca7",
 
+  "_messengers": "Ссылка — кнопка ведёт в мессенджер. \"soon\" — кнопка есть, но при нажатии показывает «скоро будет» и отправляет цель в Метрику (проверяем спрос). Пусто — кнопки нет.",
   "messengers": {
-    "whatsapp": "",
+    "whatsapp": "soon",
     "telegram": "",
-    "max": ""
+    "max": "soon"
   },
 
   "master": {

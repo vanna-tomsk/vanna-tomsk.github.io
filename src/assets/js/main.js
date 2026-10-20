@@ -75,6 +75,31 @@
     if (a.classList.contains("js-msgr")) goal("messenger_click", { messenger: a.dataset.msgr });
   });
 
+  // ---------- Мессенджеры «скоро»: проверяем спрос ----------
+  var toast, toastTimer;
+  function showToast(text) {
+    if (!toast) {
+      toast = document.createElement("div");
+      toast.className = "toast";
+      toast.setAttribute("role", "status");
+      toast.setAttribute("aria-live", "polite");
+      document.body.appendChild(toast);
+    }
+    toast.innerHTML = text;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove("show"); }, 5000);
+  }
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".js-msgr-soon");
+    if (!b) return;
+    var key = b.dataset.msgr;
+    goal(key + "_soon_click");
+    goal("messenger_soon_click", { messenger: key });
+    var phone = S.phone ? ' <a href="tel:' + S.phoneHref + '">' + S.phone + "</a>" : "";
+    showToast("<b>" + b.textContent + " скоро подключим.</b> Пока проще позвонить:" + phone + " — или оставьте заявку, перезвоню сам.");
+  });
+
   // ---------- UTM-метки: запоминаем, чтобы приложить к заявке ----------
   var utm = {};
   try {
