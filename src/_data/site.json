@@ -13,7 +13,7 @@
 
   "metrikaId": 113150444,
 
-  "formEndpoint": "",
+  "formEndpoint": "https://script.google.com/macros/s/AKfycbwK9VNHpv4B8b5gAd1nd26IwUHB7knnVGt1OjC3zUoYE-OuDppEGJnFCui10N5D9eQwsg/exec",
   "yandexFormId": "6aaa6a61eb61469c4c0f0ca7",
 
   "_messengers": "Ссылка — кнопка ведёт в мессенджер. \"soon\" — кнопка есть, но при нажатии показывает «скоро будет» и отправляет цель в Метрику (проверяем спрос). Пусто — кнопки нет.",
