@@ -1,0 +1,11 @@
+{%- set m = site.messengers -%}
+{%- set names = { whatsapp: "WhatsApp", telegram: "Telegram", max: "MAX" } -%}
+{%- if m.whatsapp or m.telegram or m.max %}
+<div class="msgr">
+  {%- for key in ["whatsapp", "telegram", "max"] %}
+  {%- if m[key] == "soon" %}<button type="button" class="msgr-btn js-msgr-soon" data-msgr="{{ key }}">{{ names[key] }}</button>
+  {%- elif m[key] %}<a class="msgr-btn js-msgr" data-msgr="{{ key }}" href="{{ m[key] }}" target="_blank" rel="noopener">{{ names[key] }}</a>
+  {%- endif %}
+  {%- endfor %}
+</div>
+{%- endif %}

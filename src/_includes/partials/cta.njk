@@ -1,0 +1,19 @@
+{#- Блок заявки внизу страницы. Параметры: ctaTitle, ctaText, leadService -#}
+{%- from "partials/lead-form.njk" import leadForm with context -%}
+<section class="cta" id="zayavka">
+  <div class="wrap cta-grid">
+    <div class="cta-text">
+      <h2 class="h2">{{ ctaTitle or "Записаться на реставрацию" }}</h2>
+      <p>{{ ctaText or "Оставьте телефон — перезвоню в течение дня, отвечу на вопросы и договоримся о времени. Можно сразу прислать фото ванны: оценю честно." }}</p>
+      <ul class="cta-facts">
+        <li>Выезд по {{ site.areaShort }} — бесплатно</li>
+        <li>Работаю {{ site.hours }}</li>
+      </ul>
+      <a class="cta-phone" href="tel:{{ site.phoneHref }}">{{ site.phone }}</a>
+      {% include "partials/messengers.njk" %}
+    </div>
+    <div class="cta-form">
+      {{ leadForm("inline", leadService) }}
+    </div>
+  </div>
+</section>

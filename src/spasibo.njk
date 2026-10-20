@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+permalink: /spasibo/
+title: "Заявка отправлена | Ванна+"
+description: "Спасибо! Заявка отправлена — перезвоню в течение дня."
+noindex: true
+hideLeadDialog: true
+bodyClass: thanks
+---
+<section class="simple">
+  <div class="wrap">
+    <h1>Спасибо!<br><span style="color:var(--accent)">Заявка у меня.</span></h1>
+    <p>Перезвоню в течение дня, отвечу на вопросы и договоримся о времени. Если удобно — пришлите фото ванны или сифона, так я сразу смогу всё оценить.</p>
+    <p><a class="cta-phone" style="color:var(--ink)" href="tel:{{ site.phoneHref }}">{{ site.phone }}</a></p>
+    {% include "partials/messengers.njk" %}
+    <p style="margin-top:36px"><a class="more-link" href="/">← На главную</a></p>
+  </div>
+</section>

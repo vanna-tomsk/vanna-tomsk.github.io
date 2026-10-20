@@ -1,0 +1,34 @@
+---
+layout: layouts/base.njk
+permalink: /kontakty/
+title: "Контакты — реставрация ванн в Томске, +7 952 803-80-02 | Ванна+"
+description: "Телефон мастера по реставрации ванн в Томске: +7 952 803-80-02. Работаю ежедневно с 9:00 до 21:00 по Томску и Томскому району, выезд бесплатно."
+crumb: "Контакты"
+---
+<section class="page-head">
+  <div class="wrap">
+    <h1>Контакты</h1>
+    <div class="page-head-row">
+      <p class="lead-p">Звоните или пишите — отвечу в тот же день. Можно сразу прислать фото ванны: подскажу, подойдёт ли реставрация, и назову цену.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <ul class="contact-list">
+      <li><span class="k">Телефон</span><span class="v"><a href="tel:{{ site.phoneHref }}">{{ site.phone }}</a><br><small style="color:var(--muted);font-size:15px">звонок или сообщение — как удобнее</small></span></li>
+      {%- if site.messengers.whatsapp or site.messengers.telegram or site.messengers.max %}
+      <li><span class="k">Мессенджеры</span><span class="v">{% include "partials/messengers.njk" %}</span></li>
+      {%- endif %}
+      {%- if site.email %}
+      <li><span class="k">Почта</span><span class="v"><a href="mailto:{{ site.email }}">{{ site.email }}</a></span></li>
+      {%- endif %}
+      <li><span class="k">Часы работы</span><span class="v">Ежедневно, 9:00–21:00</span></li>
+      <li><span class="k">Где работаю</span><span class="v">Томск и Томский район. Выезд бесплатный.</span></li>
+      <li><span class="k">Услуги</span><span class="v"><a href="/">Реставрация ванн жидким акрилом</a>, <a href="/#ugolok">установка керамического уголка</a>, <a href="/zamena-sifona/">замена сифона</a></span></li>
+    </ul>
+  </div>
+</section>
+
+{% include "partials/cta.njk" %}

@@ -1,0 +1,50 @@
+{%- set base = site.url + "/" -%}
+{%- set business = {
+  "@type": "HomeAndConstructionBusiness",
+  "@id": base + "#business",
+  "name": site.name,
+  "description": "Реставрация ванн жидким акрилом на дому за один визит, установка керамического уголка, замена сифонов. Томск и Томский район.",
+  "url": base,
+  "telephone": site.phoneHref,
+  "image": base + "og-image.jpg",
+  "logo": base + "icon-512.png",
+  "priceRange": "от 7 000 ₽",
+  "address": { "@type": "PostalAddress", "addressLocality": "Томск", "addressRegion": "Томская область", "addressCountry": "RU" },
+  "areaServed": [ { "@type": "City", "name": "Томск" }, { "@type": "AdministrativeArea", "name": "Томский район" } ],
+  "openingHoursSpecification": [ { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "09:00", "closes": "21:00" } ]
+} -%}
+{%- set graph = [
+  { "@type": "WebSite", "@id": base + "#website", "url": base, "name": site.name, "inLanguage": "ru-RU", "publisher": { "@id": base + "#business" } },
+  business
+] -%}
+{%- if crumb -%}
+{%- set _x = graph.push({
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Главная", "item": base },
+    { "@type": "ListItem", "position": 2, "name": crumb, "item": page.url | absUrl(site.url) }
+  ]
+}) -%}
+{%- endif -%}
+{%- for s in (services or []) -%}
+{%- set svc = {
+  "@type": "Service",
+  "name": s.name,
+  "serviceType": s.serviceType or s.name,
+  "description": s.description,
+  "provider": { "@id": base + "#business" },
+  "areaServed": business.areaServed,
+  "url": page.url | absUrl(site.url)
+} -%}
+{%- set sp = site.prices[s.priceKey] if s.priceKey else null -%}
+{%- if sp -%}{%- set svc = (svc | setAttr("offers", { "@type": "Offer", "price": sp, "priceCurrency": "RUB", "url": page.url | absUrl(site.url) })) -%}{%- endif -%}
+{%- set _x = graph.push(svc) -%}
+{%- endfor -%}
+{%- if faq and faq.length -%}
+{%- set qa = [] -%}
+{%- for f in faq -%}{%- set _x = qa.push({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a | striptags } }) -%}{%- endfor -%}
+{%- set _x = graph.push({ "@type": "FAQPage", "mainEntity": qa }) -%}
+{%- endif -%}
+{%- if not noindex %}
+<script type="application/ld+json">{{ { "@context": "https://schema.org", "@graph": graph } | dump | safe }}</script>
+{%- endif %}

@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+permalink: /o-mastere/
+title: "О мастере — реставрация ванн в Томске | Ванна+"
+description: "Реставрацию ванн жидким акрилом в Томске делаю сам — 10 лет опыта, гарантия 12 месяцев письменно, честная оценка по фото."
+crumb: "О мастере"
+---
+<section class="page-head">
+  <div class="wrap">
+    <h1>О <span>мастере</span></h1>
+    <div class="page-head-row">
+      <p class="lead-p">«Ванна+» — это не диспетчерская и не бригада. Приезжаю и делаю работу сам, поэтому отвечаю за результат лично.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap master">
+    <div class="master-photo">
+      {% if site.master.photo %}<img src="{{ site.master.photo }}" alt="Мастер {{ site.master.name }}" width="800" height="1000" loading="lazy">{% else %}Здесь будет фото мастера{% endif %}
+    </div>
+    <div class="prose">
+      <h2 style="margin-top:0">{% if site.master.name %}{{ site.master.name }} — {% endif %}{{ site.master.experienceYears }} лет реставрирую ванны</h2>
+      <p>Занимаюсь наливной реставрацией ванн жидким акрилом в Томске и Томском районе. За это время видел ванны в любом состоянии — от слегка пожелтевших до ржавых, со сколами до металла.</p>
+      <p>Если по фото понятно, что акрил не поможет, — так и скажу. Мне выгоднее сделать одну ванну хорошо, чем потом переделывать.</p>
+      <h2>Как я работаю</h2>
+      <ul class="principles">
+        <li><b>Честная оценка</b><span>Пришлите фото — скажу, подойдёт ли реставрация, ещё до выезда.</span></li>
+        <li><b>Фиксированная цена</b><span>{{ site.prices.restoration | rub }} под ключ — без доплат за материал, выезд и уборку.</span></li>
+        <li><b>Чистота</b><span>Защищаю плитку и пол, после работы убираю за собой.</span></li>
+        <li><b>Гарантия</b><span>12 месяцев письменно. При нормальном уходе покрытие служит 8–12 лет.</span></li>
+      </ul>
+      <p style="margin-top:28px"><a class="more-link" href="/raboty/">Посмотреть работы →</a></p>
+    </div>
+  </div>
+</section>
+
+{% include "partials/cta.njk" %}

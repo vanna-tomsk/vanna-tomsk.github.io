@@ -1,0 +1,34 @@
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="foot-logo" href="/">ВАННА+</a>
+      <p>Реставрация ванн жидким акрилом.<br>{{ site.area }} · {{ site.hours }}.<br>Пришлите фото ванны — отвечу в тот же день.</p>
+    </div>
+    <nav class="foot-col" aria-label="Услуги">
+      <p class="foot-h">Услуги</p>
+      <ul>
+        <li><a href="/">Реставрация ванн акрилом</a></li>
+        <li><a href="/#ugolok">Керамический уголок</a></li>
+        <li><a href="/zamena-sifona/">Замена сифона</a></li>
+        <li><a href="/ceny/">Цены</a></li>
+      </ul>
+    </nav>
+    <nav class="foot-col" aria-label="Разделы">
+      <p class="foot-h">Разделы</p>
+      <ul>
+        {%- for item in nav %}{% if item.url != "/" and item.url != "/ceny/" %}
+        <li><a href="{{ item.url }}">{{ item.title }}</a></li>{% endif %}{% endfor %}
+      </ul>
+    </nav>
+    <div class="foot-contact">
+      <a class="foot-phone" href="tel:{{ site.phoneHref }}">{{ site.phone }}</a>
+      <span>звонок или сообщение — как удобнее</span>
+      {% include "partials/messengers.njk" %}
+    </div>
+  </div>
+  <div class="wrap foot-legal">
+    <span>© {{ buildDate | truncate(4, true, "") }} {{ site.name }}</span>
+    <a href="/politika/">Политика обработки персональных данных</a>
+    <a href="/soglasie/">Согласие на обработку персональных данных</a>
+  </div>
+</footer>

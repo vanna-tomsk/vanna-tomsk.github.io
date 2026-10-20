@@ -1,0 +1,7 @@
+[
+  { "title": "Главная", "url": "/" },
+  { "title": "Цены", "url": "/ceny/" },
+  { "title": "Работы и отзывы", "url": "/raboty/" },
+  { "title": "О мастере", "url": "/o-mastere/" },
+  { "title": "Контакты", "url": "/kontakty/" }
+]
