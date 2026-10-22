@@ -1,4 +1,6 @@
-# Сборка сайта и публикация на GitHub Pages при каждом изменении ветки main.
+# Сборка сайта и публикация при каждом изменении ветки main:
+# основной хостинг — бакет vanna-tomsk.ru в Yandex Object Storage,
+# запасная копия — GitHub Pages (vanna-tomsk.github.io).
 name: Deploy site
 on:
   push:
@@ -22,11 +24,52 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: _site
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
-  deploy:
+
+  # Выкладка в Yandex Object Storage. Нужны секреты репозитория
+  # YC_ACCESS_KEY_ID и YC_SECRET_ACCESS_KEY (статический ключ сервисного аккаунта).
+  deploy-yandex:
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.YC_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.YC_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ru-central1
+      S3: aws s3 --endpoint-url=https://storage.yandexcloud.net
+      BUCKET: s3://vanna-tomsk.ru
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: _site
+      - name: Upload to bucket
+        if: env.AWS_ACCESS_KEY_ID != ''
+        run: |
+          # HTML и служебные файлы — без долгого кэша, чтобы правки были видны сразу
+          $S3 sync _site $BUCKET --delete --exclude "assets/*" --exclude "img/*" \
+            --cache-control "no-cache"
+          # Шрифты, скрипты, картинки — с кэшем на неделю
+          $S3 sync _site $BUCKET --exclude "*" --include "assets/*" --include "img/*" \
+            --cache-control "public, max-age=604800"
+          # Типы, которые aws cli не угадывает
+          $S3 cp _site/site.webmanifest $BUCKET/site.webmanifest \
+            --content-type "application/manifest+json" --cache-control "no-cache"
+          $S3 cp _site $BUCKET --recursive --exclude "*" --include "*.svg" \
+            --content-type "image/svg+xml"
+          $S3 cp _site $BUCKET --recursive --exclude "*" --include "*.js" \
+            --content-type "text/javascript; charset=utf-8" --cache-control "public, max-age=604800"
+      - name: Secrets missing
+        if: env.AWS_ACCESS_KEY_ID == ''
+        run: echo "::warning::Нет секретов YC_ACCESS_KEY_ID / YC_SECRET_ACCESS_KEY — выкладка в Object Storage пропущена"
+
+  deploy-pages:
     needs: build
     runs-on: ubuntu-latest
     environment:
