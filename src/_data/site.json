@@ -19,7 +19,7 @@
   "_messengers": "Ссылка — кнопка ведёт в мессенджер. \"soon\" — кнопка есть, но при нажатии показывает «скоро будет» и отправляет цель в Метрику (проверяем спрос). Пусто — кнопки нет.",
   "messengers": {
     "whatsapp": "soon",
-    "telegram": "https://t.me/vanna_plus_tomsk",
+    "telegram": "https://t.me/vanna_plus_bot",
     "max": "soon"
   },
 
